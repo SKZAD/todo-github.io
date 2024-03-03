@@ -49,7 +49,7 @@ router.delete('/:id', async (req, res) => {
     if (task === null) {
       return res.status(404).json({ message: 'Task not found' });
     }
-    await task.remove();
+    await Task.findByIdAndDelete();
     res.json({ message: 'Task deleted' });
   } catch (error) {
     res.status(500).json({ message: error.message });
